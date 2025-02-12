@@ -1,0 +1,11 @@
+<div>
+    <h1>Upcoming Angular Events</h1>
+    <hr>   
+    <div class="row">
+        <div class="col-md-5" *ngFor="let event of events">
+            <event-thumbnail [event]="event" (eventClick)="handleReturnedResult($event)"#thumbNail (click)="handleThumbnailClick(event)" ></event-thumbnail>
+            <div *ngIf="recievedData" class="button" style="border: 1px solid white; width: fit-content; background: green; color: white; margin-top: 1rem; padding: 7px; cursor: pointer; border-radius: 2px; margin-bottom: 1rem;min-width: 120px;">{{recievedData}} </div>
+            <div *ngIf="recievedData" class="button" (click)="thumbNail.clearOutput()" style="border: 1px solid white; width: fit-content; background: green; color: white; margin-top: 2rem; padding: 7px; cursor: pointer; border-radius: 2px; margin-bottom: 2rem; min-width: 120px;">Clear me </div>
+        </div>
+    </div>
+</div>

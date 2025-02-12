@@ -1,0 +1,15 @@
+.event{
+    border: 1px solid white;
+    padding: 2rem;
+    min-height: 200px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(198, 195, 195, 0.2), 0 6px 20px 0 rgba(239, 238, 238, 0.19);
+    border-radius: 5px;
+
+    &:hover{
+        transform: scale(1.005);
+    }
+    img{
+        max-height: 130px;
+    }
+}

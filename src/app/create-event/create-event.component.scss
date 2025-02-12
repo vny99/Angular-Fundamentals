@@ -1,0 +1,33 @@
+$placeholder-color: #999;
+$error-color: rgb(190, 49, 49);
+$error-background-color: #E3C3C5;
+
+em{
+    float: right;
+    padding-left: 10px;
+    color: $error-color;
+}
+
+@mixin error-placeholder(){
+    color: $placeholder-color;
+}
+
+.error input {
+    background-color: $error-background-color;
+}
+
+.error ::-webkit-input-placeholder{
+    @include error-placeholder();  
+}
+
+.error ::-moz-placeholder{
+    @include error-placeholder();
+}
+
+.error :-moz-placeholder{
+    @include error-placeholder();
+}
+
+.error :-ms-input-placeholder{
+    @include error-placeholder();
+}

@@ -1,0 +1,17 @@
+<div class="well hoverwell thumbnail" [routerLink]="['/upcoming-events',event?.id]" >
+    <h2>{{event?.name}}</h2>
+    <div>Date: {{event?.date}}</div>
+    <div [ngSwitch]="event?.time" [ngClass]="getStartTimeClass()" >Time: {{event?.time}}
+    <span *ngSwitchCase="'8:00 am'">(Early Start)</span>   
+    <span *ngSwitchCase="'10:00 am'">(Late Start)</span> 
+    <span *ngSwitchDefault="">(Normal Start)</span>
+    </div>
+    <div>Price:${{event?.price}} </div>
+    <div>
+        <span>Location: {{event?.location?.address}} </span>
+        <span>&nbsp;</span>
+        <span>{{event?.location?.city}}, {{event?.location?.country}} </span>
+    </div>
+</div>
+
+<button class="btn btn-primary" style="margin-bottom: 2rem;" (click)="sendOutput()">Click me</button>

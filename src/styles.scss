@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+$hoverwell-bg-color: #485563;
+$toast-success-bg-color: #51a351;
+$toast-error-bg-color:#bd362f;
+$toast-info-bg-color:#2f96b4;
+$toast-warning-bg-color:#f89406;
+$button-color:#555;
+
+@mixin toast-syles($color){
+    background-color: $color;
+}
+
+.hoverwell{
+    &:hover{
+        background-color: $hoverwell-bg-color;
+        cursor: pointer;
+    }
+}
+
+.container{
+    padding-top: 10px;
+}
+
+.pointable{
+    cursor: pointer;
+}
+
+.button{
+    color: $button-color;
+}
+
+[hidden]{
+    display: none !important;
+}
+
+.toast-success{
+    @include toast-syles($toast-success-bg-color)
+}
+
+.toast-error{
+    @include toast-syles($toast-error-bg-color)
+}
+
+.toast-info{
+    @include toast-syles($toast-info-bg-color)
+}
+
+.toast-warning{
+    @include toast-syles($toast-warning-bg-color)
+}

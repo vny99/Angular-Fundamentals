@@ -1,0 +1,28 @@
+.thumbnail{
+    min-height: 250px;
+    border: 1px solid white;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    border-radius: 5px;
+
+    &:hover{
+        transform: scale(1.005);
+    }
+}
+
+
+@mixin text-color($color){
+    color: $color;
+}
+
+.green{
+    @include text-color(rgb(167, 240, 167))
+}
+.red{
+    @include text-color(rgba(239, 120, 120, 0.897))
+}
+.yellow{
+    @include text-color(yellow)
+}
+.bold{
+    font-weight: bold;
+}

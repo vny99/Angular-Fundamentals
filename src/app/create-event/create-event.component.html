@@ -1,0 +1,54 @@
+<h1>New Event</h1>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+       <form #newEventForm = "ngForm" autocomplete="off" (ngSubmit)="saveForm()" novalidate>
+        <div class="form-group" [ngClass]="{'error': newEventForm.controls['name']?.invalid && newEventForm.controls['name']?.touched}">
+            <label for="name">Event Name:</label>
+            <em *ngIf="newEventForm.controls['name']?.invalid && newEventForm.controls['name']?.touched">Name is Required...</em>
+            <input id="name" name="name" [(ngModel)]="newEvent.name" type="text" class="form-control" placeholder="Event Name..." required/>
+        </div>
+        <div class="form-group"[ngClass]="{'error': newEventForm.controls['date']?.invalid && newEventForm.controls['date']?.touched}" >
+            <label for="date">Event Date:</label>
+            <em *ngIf="newEventForm.controls['date']?.invalid && newEventForm.controls['date']?.touched"> Date is Required...</em>
+            <input id="date" name="date" [(ngModel)]="newEvent.date" type="date" class="form-control" placeholder="Event Date... dd-mm-yy" required/>
+        </div>
+        <div class="form-group" [ngClass]="{'error': newEventForm.controls['time']?.invalid && newEventForm.controls['time']?.touched}" >
+            <label for="time">Time:</label>
+            <em *ngIf="newEventForm.controls['time']?.invalid && newEventForm.controls['time']?.touched">Time is Required...</em>
+            <input id="time" name ='time' [(ngModel)] ="newEvent.time" type="text" class="form-control" placeholder="start and end time..." required/>
+        </div>
+        <div class="form-group" [ngClass]="{'error' : newEventForm.controls['price']?.invalid && newEventForm.controls['price']?.touched}">
+            <label for="price">Price:</label>
+            <em *ngIf="newEventForm.controls['price']?.invalid && newEventForm.controls['price']?.touched">Price is Required...</em>
+            <input id="price" name="price" [(ngModel)]="newEvent.price" type="number" class="form-control" placeholder="Price..." required/>
+        </div>
+       <div ngModelGroup="location">
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input id="address" name="address" [(ngModel)]="newEvent.location.address" type="text" class="form-control" placeholder="Address of Event" />
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <input id="city" name="city" [(ngModel)]="newEvent.location.city" type="text" class="form-control" placeholder="City..."/>
+            </div>
+            <div class="col-md-6">
+                <input id="country"name="country" [(ngModel)]="newEvent.location.country" type="text" class="form-control" placeholder="country..."/>
+            </div>
+        </div>
+       </div>
+        <div class="form-group">
+            <label for="onlineURL">Online URL:</label>
+            <input id="onlineURL" name="onlineURL" [(ngModel)]="newEvent.onlineUrl" type="text" class="form-control" placeholder="Online URL..."/>
+        </div>
+        <div class="form-group" [ngClass]="{'error' : newEventForm.controls['imageURL']?.invalid && newEventForm.controls['imageURL']?.touched}" >
+            <label for="imageURL">Image URL:</label>
+            <em *ngIf="newEventForm.controls['imageURL']?.invalid && newEventForm.controls['imageURL']?.touched && newEventForm.controls['imageURL'].errors?.['required']">Image URL is Required...</em>
+            <em *ngIf="newEventForm.controls['imageURL']?.invalid && newEventForm.controls['imageURL']?.touched && newEventForm.controls['imageURL'].errors?.['pattern']">Format is not correct...</em>
+            <input id="imageURL" name="newEvent.imageURL" [(ngModel)]="newEvent.imageUrl" pattern=".*\/.*.(png|jpg)" type="text" class="form-control" placeholder="Image URL..." required />
+        </div>
+        <button type="submit" [disabled]="newEventForm.errors || newEventForm.untouched" class="btn btn-primary">Save</button> &nbsp;
+        <button type="button" class="btn btn-default" (click)="cancel()">cancel</button>
+       </form> 
+    </div>
+</div>
